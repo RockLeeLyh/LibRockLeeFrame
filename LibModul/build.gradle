@@ -2,6 +2,9 @@ apply plugin: 'com.android.library'
 //添加butterknife註解插件
 apply plugin: 'com.jakewharton.butterknife'
 
+//添加表达式语言的插件
+apply plugin: 'me.tatarka.retrolambda'
+
 //自己生成类库
 apply plugin: 'com.github.dcendents.android-maven'
 group='com.github.RockLeeLyh'
@@ -27,6 +30,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    //要android 支持 jdk1.8 版本 （支持表达式语言,或其他特性）
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -41,4 +50,15 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
     
     compile 'com.orhanobut:logger:2.1.1'
+
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.1'
+    compile 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
+    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
+    //这个包会自动包含导入 retrofit \ okhttp \ okio \ gson 等相关的包
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    //当和Rx结合使用时需要导入这个包
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    //需要打印日志时需要导入这个包
+    compile 'com.squareup.okhttp3:logging-interceptor:3.8.1' 
 }

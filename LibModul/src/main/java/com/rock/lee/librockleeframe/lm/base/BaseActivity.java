@@ -1,8 +1,10 @@
 package com.rock.lee.librockleeframe.lm.base;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+
+import com.orhanobut.logger.Logger;
 
 import butterknife.ButterKnife;
 
@@ -11,7 +13,7 @@ import butterknife.ButterKnife;
  * I am very NB ，NB very much !!!
  */
 
-public class BaseActivity extends Activity {
+public class BaseActivity extends FragmentActivity {
 
     /** 使用ButterKnife框架时，继承父类，调用时先设置布局文件 */
     private int layoutId;
@@ -20,6 +22,7 @@ public class BaseActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
+        Logger.i("FragmentActivity is name =====" + this.getClass().getName());
     }
 
     /**
