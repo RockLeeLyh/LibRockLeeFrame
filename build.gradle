@@ -3,11 +3,16 @@
 buildscript {
     repositories {
         jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
 
+        //使用github生成自己依懒库
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        
+        //添加butterknife註解插件
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.6.0'
 
     }
 }
