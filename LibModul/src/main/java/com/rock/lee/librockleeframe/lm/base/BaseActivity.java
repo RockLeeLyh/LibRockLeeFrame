@@ -12,6 +12,6 @@ public class BaseActivity extends Activity {
     
     
     public void ss() {
-        Log.e("rocklee","rocklee fuck you ");
+        Log.e("rocklee","rocklee fuck you 2");
     }
 }
